@@ -59,7 +59,6 @@ RUN git clone https://github.com/nodenv/nodenv-aliases.git $(nodenv root)/plugin
 RUN nodenv install 18.13.0
 RUN nodenv rehash
 RUN nodenv global 18.13.0
-RUN nodenv local 18.13.0
 RUN nodenv versions
 RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
 RUN . ~/.bashrc
@@ -69,6 +68,7 @@ RUN which nodenv
 RUN nodenv version
 
 RUN npm i -g yarn
+RUN yarn --version
 
 RUN chmod +x ./entrypoint.sh
 
