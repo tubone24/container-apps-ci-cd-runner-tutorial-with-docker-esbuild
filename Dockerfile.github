@@ -64,6 +64,8 @@ RUN echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
 RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
 RUN . ~/.bashrc
 RUN nodenv rehash
+RUN which nodenv
+RUN which sh
 RUN node -v
 RUN npm i -g yarn
 
