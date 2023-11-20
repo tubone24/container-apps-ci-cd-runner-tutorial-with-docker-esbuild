@@ -66,8 +66,7 @@ RUN nodenv rehash
 RUN which nodenv
 RUN nodenv version
 RUN exec /bin/sh -l
-RUN ln -sf /usr/local/bin/node /usr/bin/node
-RUN node -v
+
 RUN npm i -g yarn
 
 RUN chmod +x ./entrypoint.sh
