@@ -64,9 +64,8 @@ RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
 RUN . ~/.bashrc
 RUN nodenv rehash
 RUN which nodenv
+RUN nodenv version
 RUN exec /bin/sh -l
-RUN apt-get install -y nodejs npm
-RUN n stable
 RUN ln -sf /usr/local/bin/node /usr/bin/node
 RUN node -v
 RUN npm i -g yarn
