@@ -57,6 +57,8 @@ RUN cd ~/
 RUN git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
 RUN nodenv install 18.13.0
 RUN nodenv global 18.13.0
+RUN echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
+RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
 RUN . ~/.bashrc
 RUN nodenv rehash
 RUN node -v
