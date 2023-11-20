@@ -62,6 +62,9 @@ RUN nodenv global 18.13.0
 RUN nodenv versions
 RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
 RUN . ~/.bashrc
+RUN rm -rf /usr/local/bin/node
+RUN rm -rf /usr/local/bin/npm
+RUN rm -rf /usr/local/bin/npx
 RUN ln -vs $(nodenv root)/shims/* /usr/local/bin/
 RUN nodenv rehash
 
