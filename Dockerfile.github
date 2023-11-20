@@ -55,7 +55,7 @@ RUN ln -vs ~/.nodenv/bin/nodenv /usr/local/bin/nodenv
 RUN cd ~/.nodenv && src/configure && make -C src || true
 RUN cd ~/
 RUN git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
-git clone https://github.com/nodenv/nodenv-aliases.git $(nodenv root)/plugins/nodenv-aliases
+RUN git clone https://github.com/nodenv/nodenv-aliases.git $(nodenv root)/plugins/nodenv-aliases
 RUN nodenv install 18.13.0
 RUN nodenv rehash
 RUN nodenv global 18.13.0
