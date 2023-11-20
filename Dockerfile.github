@@ -60,7 +60,6 @@ RUN nodenv rehash
 RUN nodenv global 18.13.0
 RUN nodenv local 18.13.0
 RUN nodenv versions
-RUN echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
 RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
 RUN . ~/.bashrc
 RUN nodenv rehash
