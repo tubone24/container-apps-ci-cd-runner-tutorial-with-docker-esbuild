@@ -64,10 +64,10 @@ RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
 RUN . ~/.bashrc
 RUN ln -vs $(nodenv root)/shims/* /usr/local/bin/
 RUN nodenv rehash
-RUN which nodenv
-RUN nodenv version
 
 RUN npm i -g yarn
+RUN which npm
+RUN which docker
 RUN yarn --version
 
 RUN chmod +x ./entrypoint.sh
