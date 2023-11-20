@@ -64,6 +64,7 @@ RUN echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
 RUN echo 'export PATH="$HOME/.nodenv/shims:$PATH"' >> ~/.bashrc
 # RUN ~/.nodenv/bin/nodenv init
 RUN . ~/.bashrc
+RUN exec /bin/sh -l
 
 RUN nodenv install 18.13.0
 RUN nodenv rehash
