@@ -50,6 +50,7 @@ RUN apt-get update && apt-get install -y curl jq esbuild build-essential git && 
     rm -rf /var/lib/apt/lists/*
 
 COPY github-actions-runner/entrypoint.sh ./entrypoint.sh
+RUN apt-get remove node
 RUN git clone https://github.com/nodenv/nodenv.git ~/.nodenv
 RUN ln -vs ~/.nodenv/bin/nodenv /usr/local/bin/nodenv
 RUN cd ~/.nodenv && src/configure && make -C src || true
