@@ -63,6 +63,7 @@ RUN nodenv local 18.13.0
 RUN nodenv versions
 RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
 RUN . ~/.bashrc
+sudo ln -vs $(nodenv root)/shims/* /usr/local/bin/
 RUN nodenv rehash
 RUN which nodenv
 RUN nodenv version
