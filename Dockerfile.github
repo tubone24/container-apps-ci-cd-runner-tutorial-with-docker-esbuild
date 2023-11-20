@@ -67,7 +67,7 @@ RUN . ~/.bashrc
 RUN rm -rf /usr/local/bin/node
 RUN rm -rf /usr/local/bin/npm
 RUN rm -rf /usr/local/bin/npx
-RUN ln -vs $(nodenv root)/shims/* /usr/local/bin/
+# RUN ln -vs $(nodenv root)/shims/* /usr/local/bin/
 RUN nodenv rehash
 
 RUN npm i -g yarn
