@@ -53,7 +53,6 @@ USER runner
 
 COPY github-actions-runner/entrypoint.sh ./entrypoint.sh
 RUN git clone https://github.com/nodenv/nodenv.git ~/.nodenv
-RUN ln -vs ~/.nodenv/bin/nodenv /usr/local/bin/nodenv
 RUN cd ~/.nodenv && src/configure && make -C src || true
 RUN cd ~/
 RUN git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
