@@ -3,11 +3,18 @@ FROM ghcr.io/actions/actions-runner:2.304.0
 USER root
 
 # install curl and jq
-RUN apt-get update && apt-get install -y curl jq && \
+RUN apt-get update && apt-get install -y curl jq esbuild build-essential && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 COPY github-actions-runner/entrypoint.sh ./entrypoint.sh
+RUN git clone https://github.com/nodenv/nodenv.git ~/.nodenv
+RUN echo 'export PATH="$HOME/.nodenv/bin:$PATH"' >> ~/.bashrc
+RUN echo 'eval "$(nodenv init -)"' >> ~/.bashrc
+RUN source ~/.bashrc
+RUN git clone https://github.com/nodenv/node-build.git $(nodenv root)/plugins/node-build
+RUN curl -fsSL https://get.docker.com/ | sh
+
 RUN chmod +x ./entrypoint.sh
 
 USER runner
